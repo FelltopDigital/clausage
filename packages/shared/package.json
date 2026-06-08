@@ -1,5 +1,5 @@
 {
-  "name": "@clusage/shared",
+  "name": "@clausage/shared",
   "version": "0.1.0",
   "type": "module",
   "main": "./dist/index.js",

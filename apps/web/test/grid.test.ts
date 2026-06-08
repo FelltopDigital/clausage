@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import type { DailyUsage } from '@clusage/shared';
+import type { DailyUsage } from '@clausage/shared';
 import {
   levelForMessages,
   buildMonthGrid,

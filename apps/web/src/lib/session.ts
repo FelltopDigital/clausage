@@ -5,7 +5,7 @@ import { env } from '../env';
 import { hmacSign, safeEqual } from './crypto';
 import type { User } from '../db/schema';
 
-const COOKIE = 'clusage_session';
+const COOKIE = 'clausage_session';
 const MAX_AGE_SECONDS = 60 * 60 * 24 * 30; // 30 days
 
 /** Stateless signed-cookie session: base64url(payload).hmac */

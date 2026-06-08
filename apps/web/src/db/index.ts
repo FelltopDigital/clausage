@@ -20,34 +20,34 @@ import { usesPglite, pgliteDir } from './driver';
 type DB = PostgresJsDatabase<typeof schema>;
 
 declare global {
-  var __clusageDb: DB | undefined;
-  var __clusageClient: unknown;
+  var __clausageDb: DB | undefined;
+  var __clausageClient: unknown;
 }
 
 function createDb(): DB {
   const url = env.DATABASE_URL;
   if (usesPglite(url)) {
     // Guard: PGlite is ephemeral on serverless. Never let prod silently use it.
-    if (process.env.NODE_ENV === 'production' && !process.env.CLUSAGE_ALLOW_PGLITE) {
+    if (process.env.NODE_ENV === 'production' && !process.env.CLAUSAGE_ALLOW_PGLITE) {
       throw new Error(
         'DATABASE_URL is not set in production. Set a Postgres connection string (see SETUP.md).',
       );
     }
-    const client = (globalThis.__clusageClient as PGlite) ?? new PGlite(pgliteDir(url));
-    globalThis.__clusageClient = client;
+    const client = (globalThis.__clausageClient as PGlite) ?? new PGlite(pgliteDir(url));
+    globalThis.__clausageClient = client;
     // PGlite drizzle shares the same query-builder API surface as postgres-js.
     return drizzlePglite(client, { schema }) as unknown as DB;
   }
-  const client = (globalThis.__clusageClient as ReturnType<typeof postgres>) ?? postgres(url!, { max: 5, prepare: false });
-  globalThis.__clusageClient = client;
+  const client = (globalThis.__clausageClient as ReturnType<typeof postgres>) ?? postgres(url!, { max: 5, prepare: false });
+  globalThis.__clausageClient = client;
   return drizzlePg(client, { schema });
 }
 
 function getDb(): DB {
-  const existing = globalThis.__clusageDb;
+  const existing = globalThis.__clausageDb;
   if (existing) return existing;
   const created = createDb();
-  globalThis.__clusageDb = created;
+  globalThis.__clausageDb = created;
   return created;
 }
 

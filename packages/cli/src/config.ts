@@ -4,7 +4,7 @@ import { mkdirSync, readFileSync, writeFileSync, existsSync, chmodSync } from 'n
 import { createHash, randomBytes } from 'node:crypto';
 
 export interface CliConfig {
-  /** Backend base URL, e.g. https://clusage.com */
+  /** Backend base URL, e.g. https://clausage.com */
   apiUrl: string;
   /** Bearer token (clst_...). Stored locally only. */
   token?: string;
@@ -14,12 +14,12 @@ export interface CliConfig {
   machineSalt?: string;
 }
 
-const DEFAULT_API_URL = process.env.CLUSAGE_API_URL ?? 'https://clusage.com';
+const DEFAULT_API_URL = process.env.CLAUSAGE_API_URL ?? 'https://clausage.com';
 
 export function configDir(): string {
-  // Respect XDG; default to ~/.config/clusage
+  // Respect XDG; default to ~/.config/clausage
   const base = process.env.XDG_CONFIG_HOME ?? join(homedir(), '.config');
-  return join(base, 'clusage');
+  return join(base, 'clausage');
 }
 
 export function configPath(): string {

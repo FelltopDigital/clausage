@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { revalidatePath } from 'next/cache';
 import { sql } from 'drizzle-orm';
-import { SyncPayloadSchema } from '@clusage/shared';
+import { SyncPayloadSchema } from '@clausage/shared';
 import { db, schema } from '@/db/index';
 import { authenticateBearer } from '@/lib/api-auth';
 

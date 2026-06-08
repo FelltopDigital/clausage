@@ -1,11 +1,11 @@
 {
-  "name": "clusage",
+  "name": "clausage",
   "version": "0.1.0",
   "type": "module",
-  "description": "Sync your local Claude Code usage to clusage.com — a shareable activity grid for your bio.",
+  "description": "Sync your local Claude Code usage to clausage.com — a shareable activity grid for your bio.",
   "license": "MIT",
   "bin": {
-    "clusage": "./dist/index.js"
+    "clausage": "./dist/index.js"
   },
   "files": ["dist"],
   "scripts": {
@@ -16,7 +16,7 @@
   },
   "keywords": ["claude", "claude-code", "usage", "cli", "stats"],
   "dependencies": {
-    "@clusage/shared": "workspace:*",
+    "@clausage/shared": "workspace:*",
     "commander": "^13.1.0",
     "zod": "^3.24.1"
   },

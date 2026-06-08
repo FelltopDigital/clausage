@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeAll } from 'vitest';
 import { eq, sql } from 'drizzle-orm';
-import type { SyncPayload } from '@clusage/shared';
+import type { SyncPayload } from '@clausage/shared';
 import { db, schema } from '@/db/index.js';
 import { mintApiToken } from '@/lib/crypto.js';
 import { POST as syncPost } from '@/app/api/sync/route.js';

@@ -1,4 +1,4 @@
-import type { SyncPayload, SyncResponse } from '@clusage/shared';
+import type { SyncPayload, SyncResponse } from '@clausage/shared';
 
 export class ApiError extends Error {
   constructor(

@@ -8,7 +8,7 @@ export default function ProfileNotFound() {
         This profile doesn&apos;t exist or isn&apos;t public yet.
       </p>
       <Link href="/" className="text-orange-400 hover:underline">
-        ← clusage
+        ← clausage
       </Link>
     </main>
   );

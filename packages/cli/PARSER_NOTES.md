@@ -8,7 +8,7 @@ aggregator in `packages/shared/src/aggregate.ts`.
 
 ```
 ~/.claude/projects/
-  <slugified-project-path>/        e.g. -Users-tom-Sites-clusage
+  <slugified-project-path>/        e.g. -Users-tom-Sites-clausage
     <sessionId>.jsonl              one file per session; filename == sessionId
 ```
 

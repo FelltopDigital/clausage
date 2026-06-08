@@ -8,7 +8,7 @@ import { eq } from 'drizzle-orm';
 import { db, schema } from '../src/db/index.js';
 import { mintApiToken } from '../src/lib/crypto.js';
 
-const DEMO_EMAIL = 'demo@clusage.com';
+const DEMO_EMAIL = 'demo@clausage.com';
 const DEMO_USERNAME = 'demo';
 const MACHINE = 'machine_demoseed0001';
 

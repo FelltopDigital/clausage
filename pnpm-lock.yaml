@@ -29,7 +29,7 @@ importers:
 
   apps/web:
     dependencies:
-      '@clusage/shared':
+      '@clausage/shared':
         specifier: workspace:*
         version: link:../../packages/shared
       '@electric-sql/pglite':
@@ -90,7 +90,7 @@ importers:
 
   packages/cli:
     dependencies:
-      '@clusage/shared':
+      '@clausage/shared':
         specifier: workspace:*
         version: link:../shared
       commander:

@@ -7,7 +7,7 @@ import { formatNumber, formatTokens, todayUTC } from '@/lib/format';
 
 export const runtime = 'nodejs';
 export const revalidate = 86400;
-export const alt = 'clusage activity grid';
+export const alt = 'clausage activity grid';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -35,7 +35,7 @@ export default async function OgImage({ params }: { params: Promise<{ username: 
             fontSize: 48,
           }}
         >
-          clusage
+          clausage
         </div>
       ),
       size,
@@ -71,7 +71,7 @@ export default async function OgImage({ params }: { params: Promise<{ username: 
               Claude Code activity
             </div>
           </div>
-          <div style={{ fontSize: 30, color: '#fb923c', fontWeight: 700 }}>clusage</div>
+          <div style={{ fontSize: 30, color: '#fb923c', fontWeight: 700 }}>clausage</div>
         </div>
 
         <div style={{ display: 'flex', gap: 40, margin: '40px 0' }}>

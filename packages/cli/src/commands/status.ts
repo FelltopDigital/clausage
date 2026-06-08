@@ -1,4 +1,4 @@
-import { aggregateFileContents, TRAILING_WINDOW_DAYS } from '@clusage/shared';
+import { aggregateFileContents, TRAILING_WINDOW_DAYS } from '@clausage/shared';
 import { loadConfig, getOrCreateMachineId } from '../config.js';
 import { findLogFiles, readLogContents } from '../logs.js';
 import { currentStreak, localToday, sumField, formatTokens, formatNumber } from '../util.js';
@@ -7,10 +7,10 @@ export async function statusCommand(): Promise<void> {
   const config = loadConfig();
   const loggedIn = Boolean(config.token);
 
-  console.log('clusage status');
+  console.log('clausage status');
   console.log('──────────────');
   console.log(`  endpoint:  ${config.apiUrl}`);
-  console.log(`  logged in: ${loggedIn ? 'yes' : 'no — run `clusage login`'}`);
+  console.log(`  logged in: ${loggedIn ? 'yes' : 'no — run `clausage login`'}`);
 
   const files = findLogFiles();
   if (files.length === 0) {
@@ -38,6 +38,6 @@ export async function statusCommand(): Promise<void> {
   console.log(`  last active:               ${lastActive}`);
 
   if (!loggedIn) {
-    console.log('\nRun `clusage login` then `clusage sync` to publish.');
+    console.log('\nRun `clausage login` then `clausage sync` to publish.');
   }
 }

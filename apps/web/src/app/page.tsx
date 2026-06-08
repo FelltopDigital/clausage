@@ -4,7 +4,7 @@ export default function HomePage() {
   return (
     <main className="mx-auto flex min-h-screen max-w-2xl flex-col justify-center gap-8 px-6 py-16">
       <div>
-        <h1 className="text-4xl font-bold tracking-tight">clusage</h1>
+        <h1 className="text-4xl font-bold tracking-tight">clausage</h1>
         <p className="mt-3 text-lg text-[var(--color-muted)]">
           Your Claude Code activity, as a shareable contribution grid.
         </p>
@@ -17,11 +17,11 @@ export default function HomePage() {
         </li>
         <li>
           <span className="font-mono text-[var(--color-muted)]">2.</span> Run{' '}
-          <code className="rounded bg-[var(--color-panel)] px-1.5 py-0.5">npx clusage sync</code>.
+          <code className="rounded bg-[var(--color-panel)] px-1.5 py-0.5">npx clausage sync</code>.
         </li>
         <li>
           <span className="font-mono text-[var(--color-muted)]">3.</span> Share{' '}
-          <code className="rounded bg-[var(--color-panel)] px-1.5 py-0.5">clusage.com/u/you</code>{' '}
+          <code className="rounded bg-[var(--color-panel)] px-1.5 py-0.5">clausage.com/u/you</code>{' '}
           and a README badge.
         </li>
       </ol>

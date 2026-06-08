@@ -1,4 +1,4 @@
-import { aggregateFileContents, SyncPayloadSchema, TRAILING_WINDOW_DAYS } from '@clusage/shared';
+import { aggregateFileContents, SyncPayloadSchema, TRAILING_WINDOW_DAYS } from '@clausage/shared';
 import { loadConfig, getOrCreateMachineId } from '../config.js';
 import { findLogFiles, readLogContents } from '../logs.js';
 import { postSync, ApiError } from '../api.js';
@@ -13,7 +13,7 @@ export async function syncCommand(opts: SyncOptions = {}): Promise<void> {
   const config = loadConfig();
 
   if (!opts.dryRun && !config.token) {
-    console.error('Not logged in. Run `clusage login` first.');
+    console.error('Not logged in. Run `clausage login` first.');
     process.exitCode = 1;
     return;
   }
@@ -66,7 +66,7 @@ export async function syncCommand(opts: SyncOptions = {}): Promise<void> {
   } catch (err) {
     if (err instanceof ApiError) {
       console.error(`\n✗ ${err.message}`);
-      if (err.status === 401) console.error('  Run `clusage login` with a fresh token.');
+      if (err.status === 401) console.error('  Run `clausage login` with a fresh token.');
     } else {
       console.error(`\n✗ Could not reach ${config.apiUrl}. ${(err as Error).message}`);
     }

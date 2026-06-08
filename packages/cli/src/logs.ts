@@ -4,7 +4,7 @@ import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 
 /** Root directory holding Claude Code session logs. */
 export function claudeProjectsDir(): string {
-  return process.env.CLUSAGE_LOGS_DIR ?? join(homedir(), '.claude', 'projects');
+  return process.env.CLAUSAGE_LOGS_DIR ?? join(homedir(), '.claude', 'projects');
 }
 
 /** Recursively collect all *.jsonl log file paths. */

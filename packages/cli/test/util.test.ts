@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { currentStreak, formatTokens } from '../src/util.js';
-import type { DailyUsage } from '@clusage/shared';
+import type { DailyUsage } from '@clausage/shared';
 
 const day = (date: string, messages: number): DailyUsage => ({
   date,

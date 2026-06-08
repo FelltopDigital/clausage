@@ -1,4 +1,4 @@
-import type { DailyUsage } from '@clusage/shared';
+import type { DailyUsage } from '@clausage/shared';
 import { buildYearGrid, colorFor, indexByDate, themeColors } from './grid';
 import { formatNumber, formatTokens } from './format';
 import type { UsageSummary } from './usage';
@@ -48,11 +48,11 @@ export function renderBadgeSvg(
     summary.totalTokens,
   )} tokens · ${summary.currentStreak}d streak`;
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="clusage activity for ${esc(username)}">
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="clausage activity for ${esc(username)}">
   <rect width="${width}" height="${height}" rx="8" fill="#0b0d10"/>
   <text x="${pad}" y="${pad + 12}" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="14" font-weight="700" fill="#e6e8eb">${esc(username)}</text>
   <text x="${pad}" y="${pad + 30}" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="11" fill="#8b929c">${esc(stats)}</text>
-  <text x="${width - pad}" y="${pad + 12}" text-anchor="end" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="10" fill="${palette[3]}">clusage</text>
+  <text x="${width - pad}" y="${pad + 12}" text-anchor="end" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="10" fill="${palette[3]}">clausage</text>
   ${rects.join('\n  ')}
 </svg>`;
 }

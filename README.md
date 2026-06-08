@@ -1,7 +1,7 @@
-# clusage
+# clausage
 
 Turn your local **Claude Code** activity into a shareable, GitHub-contribution-style
-usage grid for your bio — `clusage.com/u/<username>` plus an embeddable README badge.
+usage grid for your bio — `clausage.com/u/<username>` plus an embeddable README badge.
 
 Privacy-first: the CLI aggregates `~/.claude/projects/**/*.jsonl` **locally** and
 transmits only daily integer counts. No prompt text, responses, code, or file
@@ -11,7 +11,7 @@ contents ever leave your machine.
 
 ```
 apps/web         Next.js (App Router) — auth, API, public grid, badge, OG, payments
-packages/cli     `clusage` — npx CLI: login / sync / status
+packages/cli     `clausage` — npx CLI: login / sync / status
 packages/shared  zod schemas + the pure aggregation function (the data contract)
 ```
 
@@ -47,7 +47,7 @@ outbound payload.
 ## How it works
 
 1. Sign in with a magic link, pick a username.
-2. Mint a token, `npx clusage login`, then `npx clusage sync`.
+2. Mint a token, `npx clausage login`, then `npx clausage sync`.
 3. Pay $2.99 once to make your page public, and share it + a README badge.
 
 The CLI recomputes the full trailing 400-day window every run and upserts

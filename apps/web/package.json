@@ -1,5 +1,5 @@
 {
-  "name": "@clusage/web",
+  "name": "@clausage/web",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -16,7 +16,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@clusage/shared": "workspace:*",
+    "@clausage/shared": "workspace:*",
     "@electric-sql/pglite": "^0.2.17",
     "drizzle-orm": "^0.38.3",
     "next": "^15.1.6",

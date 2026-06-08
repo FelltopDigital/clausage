@@ -1,4 +1,4 @@
-import type { DailyUsage } from '@clusage/shared';
+import type { DailyUsage } from '@clausage/shared';
 
 /** Add n days to a YYYY-MM-DD date string (UTC-safe, calendar arithmetic). */
 function addDays(date: string, n: number): string {

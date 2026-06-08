@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import type { DailyUsage } from '@clusage/shared';
+import type { DailyUsage } from '@clausage/shared';
 import {
   BUCKET_LABELS,
   buildMonthGrid,

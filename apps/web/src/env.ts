@@ -9,7 +9,7 @@ export const env = {
   AUTH_SECRET: process.env.AUTH_SECRET ?? 'dev-insecure-secret-change-me',
 
   RESEND_API_KEY: process.env.RESEND_API_KEY,
-  EMAIL_FROM: process.env.EMAIL_FROM ?? 'clusage <login@clusage.com>',
+  EMAIL_FROM: process.env.EMAIL_FROM ?? 'clausage <login@clausage.com>',
 
   STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
   STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET,

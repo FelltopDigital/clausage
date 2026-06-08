@@ -35,7 +35,7 @@ export function OnboardingForm() {
   return (
     <form onSubmit={submit} className="flex flex-col gap-3">
       <div className="flex items-center rounded-md border border-[var(--color-panel)] bg-[var(--color-panel)] px-3 focus-within:border-orange-500">
-        <span className="text-[var(--color-muted)]">clusage.com/u/</span>
+        <span className="text-[var(--color-muted)]">clausage.com/u/</span>
         <input
           autoFocus
           value={username}

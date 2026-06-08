@@ -14,7 +14,7 @@ export default async function OnboardingPage() {
       <div>
         <h1 className="text-3xl font-bold tracking-tight">Pick your username</h1>
         <p className="mt-2 text-sm text-[var(--color-muted)]">
-          This is your public URL: clusage.com/u/<span className="text-[var(--color-fg)]">you</span>
+          This is your public URL: clausage.com/u/<span className="text-[var(--color-fg)]">you</span>
         </p>
       </div>
       <OnboardingForm />

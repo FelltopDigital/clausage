@@ -1,4 +1,4 @@
-import type { DailyUsage } from '@clusage/shared';
+import type { DailyUsage } from '@clausage/shared';
 
 /** Five intensity buckets, defined in messages/day (brief: 0 / 1–5 / 6–15 / 16–40 / 40+). */
 export function levelForMessages(messages: number): 0 | 1 | 2 | 3 | 4 {

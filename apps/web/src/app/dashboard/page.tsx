@@ -81,8 +81,8 @@ export default async function DashboardPage({
         </p>
         <pre className="mb-4 overflow-x-auto rounded-md bg-[var(--color-panel)] p-3 text-sm">
           <code>
-            npx clusage login {'<token>'}
-            {'\n'}npx clusage sync
+            npx clausage login {'<token>'}
+            {'\n'}npx clausage sync
           </code>
         </pre>
         <TokenManager initialTokens={tokens} />

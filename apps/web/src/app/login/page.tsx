@@ -23,7 +23,7 @@ export default function LoginPage() {
 
   return (
     <main className="mx-auto flex min-h-screen max-w-md flex-col justify-center gap-6 px-6">
-      <h1 className="text-3xl font-bold tracking-tight">Sign in to clusage</h1>
+      <h1 className="text-3xl font-bold tracking-tight">Sign in to clausage</h1>
 
       {status === 'sent' ? (
         <div className="rounded-md border border-[var(--color-panel)] bg-[var(--color-panel)] p-4">

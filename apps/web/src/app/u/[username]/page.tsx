@@ -26,9 +26,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { username } = await params;
   const user = await loadProfile(username);
-  if (!user || !user.isPublic) return { title: 'Not found · clusage' };
+  if (!user || !user.isPublic) return { title: 'Not found · clausage' };
   return {
-    title: `${user.username} · clusage`,
+    title: `${user.username} · clausage`,
     description: `${user.username}'s Claude Code activity grid.`,
   };
 }
@@ -47,7 +47,7 @@ export default async function ProfilePage({
   const base = env.APP_URL.replace(/\/$/, '');
   const badgeUrl = `${base}/u/${user.username}/badge.svg`;
   const profileUrl = `${base}/u/${user.username}`;
-  const markdown = `[![clusage](${badgeUrl})](${profileUrl})`;
+  const markdown = `[![clausage](${badgeUrl})](${profileUrl})`;
 
   return (
     <main className="mx-auto max-w-4xl px-6 py-12">
@@ -78,7 +78,7 @@ export default async function ProfilePage({
       <footer className="mt-12 text-center text-xs text-[var(--color-muted)]">
         Built with{' '}
         <a href={base} className="text-orange-400 hover:underline">
-          clusage
+          clausage
         </a>{' '}
         · only daily counts leave the machine
       </footer>

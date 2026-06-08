@@ -1,20 +1,20 @@
 {
-  "name": "clusage-monorepo",
+  "name": "clausage-monorepo",
   "version": "0.1.0",
   "private": true,
-  "description": "clusage — Claude Code usage grid, shareable in your bio.",
+  "description": "clausage — Claude Code usage grid, shareable in your bio.",
   "packageManager": "pnpm@10.22.0",
   "engines": {
     "node": ">=20"
   },
   "scripts": {
     "build": "pnpm -r build",
-    "dev": "pnpm --filter @clusage/web dev",
+    "dev": "pnpm --filter @clausage/web dev",
     "lint": "eslint . --ext .ts,.tsx",
     "format": "prettier --write \"**/*.{ts,tsx,js,json,md}\"",
-    "test": "pnpm --filter @clusage/shared test",
-    "db:generate": "pnpm --filter @clusage/web db:generate",
-    "db:migrate": "pnpm --filter @clusage/web db:migrate"
+    "test": "pnpm --filter @clausage/shared test",
+    "db:generate": "pnpm --filter @clausage/web db:generate",
+    "db:migrate": "pnpm --filter @clausage/web db:migrate"
   },
   "devDependencies": {
     "@eslint/js": "^9.18.0",

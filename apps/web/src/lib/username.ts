@@ -1,4 +1,4 @@
-import { UsernameSchema } from '@clusage/shared';
+import { UsernameSchema } from '@clausage/shared';
 import { db, schema } from '../db/index';
 import { and, eq, ne } from 'drizzle-orm';
 
@@ -20,7 +20,7 @@ const RESERVED = new Set([
   'help',
   'support',
   'www',
-  'clusage',
+  'clausage',
 ]);
 
 export interface UsernameCheck {

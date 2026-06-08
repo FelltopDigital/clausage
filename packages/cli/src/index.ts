@@ -8,21 +8,21 @@ import { CLI_VERSION } from './version.js';
 const program = new Command();
 
 program
-  .name('clusage')
-  .description('Sync your local Claude Code usage to clusage.com — a shareable activity grid.')
+  .name('clausage')
+  .description('Sync your local Claude Code usage to clausage.com — a shareable activity grid.')
   .version(CLI_VERSION);
 
 program
   .command('login')
-  .description('Save your clusage API token (clst_...) to ~/.config/clusage')
-  .argument('[token]', 'token to save (otherwise prompts / reads $CLUSAGE_TOKEN)')
+  .description('Save your clausage API token (clst_...) to ~/.config/clausage')
+  .argument('[token]', 'token to save (otherwise prompts / reads $CLAUSAGE_TOKEN)')
   .action(async (token?: string) => {
     await loginCommand(token);
   });
 
 program
   .command('sync')
-  .description('Parse local logs and push daily counts to clusage')
+  .description('Parse local logs and push daily counts to clausage')
   .option('--dry-run', 'compute and print the payload without sending it')
   .action(async (opts: { dryRun?: boolean }) => {
     await syncCommand({ dryRun: opts.dryRun });
