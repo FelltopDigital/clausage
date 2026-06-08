@@ -10,10 +10,15 @@ import { PublishToggle } from './publish-toggle';
 
 export const dynamic = 'force-dynamic';
 
-export default async function DashboardPage() {
+export default async function DashboardPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ upgraded?: string }>;
+}) {
   const user = await getCurrentUser();
   if (!user) redirect('/login');
   if (!user.username) redirect('/onboarding');
+  const { upgraded } = await searchParams;
 
   const days = await getDailyTotals(user.id);
   const summary = summarize(days, todayUTC());
@@ -45,6 +50,12 @@ export default async function DashboardPage() {
           </button>
         </form>
       </header>
+
+      {upgraded && user.isPaid && (
+        <div className="mb-8 rounded-md border border-green-500/40 bg-green-500/10 p-4 text-sm">
+          🎉 You&apos;re upgraded! Make your page public below and share it.
+        </div>
+      )}
 
       <section className="mb-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
         <Stat label="Messages" value={formatNumber(summary.totalMessages)} />
