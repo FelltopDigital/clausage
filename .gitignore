@@ -1,0 +1,26 @@
+node_modules/
+dist/
+.next/
+out/
+build/
+coverage/
+
+# env
+.env
+.env.local
+.env*.local
+
+# logs
+*.log
+npm-debug.log*
+
+# os
+.DS_Store
+
+# misc
+*.tsbuildinfo
+.vercel
+.turbo
+
+# local pglite databases
+.pglite*

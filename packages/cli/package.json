@@ -1,0 +1,27 @@
+{
+  "name": "clusage",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Sync your local Claude Code usage to clusage.com — a shareable activity grid for your bio.",
+  "license": "MIT",
+  "bin": {
+    "clusage": "./dist/index.js"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsc -p tsconfig.json --watch",
+    "start": "node dist/index.js",
+    "test": "vitest run"
+  },
+  "keywords": ["claude", "claude-code", "usage", "cli", "stats"],
+  "dependencies": {
+    "@clusage/shared": "workspace:*",
+    "commander": "^13.1.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.7",
+    "vitest": "^3.0.5"
+  }
+}
