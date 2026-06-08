@@ -20,10 +20,29 @@ packages/shared  zod schemas + the pure aggregation function (the data contract)
 ```bash
 pnpm install
 pnpm -r build
-pnpm test            # parser + privacy + CLI tests
+pnpm -r test         # 33 tests: parser, privacy, grid, sync idempotency, billing
 ```
 
-See [SETUP.md](./SETUP.md) for running the app and the secrets needed in prod.
+Run the app with zero external services (uses in-process PGlite):
+
+```bash
+cd apps/web
+DATABASE_URL="pglite://.pglite-dev" pnpm db:migrate
+DATABASE_URL="pglite://.pglite-dev" pnpm db:seed     # demo user at /u/demo
+DATABASE_URL="pglite://.pglite-dev" pnpm dev
+```
+
+With no `RESEND_API_KEY`, magic-link URLs print to the server console. See
+[SETUP.md](./SETUP.md) for the secrets needed in production.
+
+## Data flow & privacy
+
+The CLI derives the JSONL schema empirically (see
+[`packages/cli/PARSER_NOTES.md`](./packages/cli/PARSER_NOTES.md)): it dedupes
+assistant turns by `message.id`, sums tokens once per turn, buckets to the local
+day, and emits only integer counts. A structural test
+(`packages/shared/test/privacy.test.ts`) asserts no log content can appear in the
+outbound payload.
 
 ## How it works
 

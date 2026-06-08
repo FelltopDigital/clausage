@@ -27,6 +27,12 @@ declare global {
 function createDb(): DB {
   const url = env.DATABASE_URL;
   if (usesPglite(url)) {
+    // Guard: PGlite is ephemeral on serverless. Never let prod silently use it.
+    if (process.env.NODE_ENV === 'production' && !process.env.CLUSAGE_ALLOW_PGLITE) {
+      throw new Error(
+        'DATABASE_URL is not set in production. Set a Postgres connection string (see SETUP.md).',
+      );
+    }
     const client = (globalThis.__clusageClient as PGlite) ?? new PGlite(pgliteDir(url));
     globalThis.__clusageClient = client;
     // PGlite drizzle shares the same query-builder API surface as postgres-js.
