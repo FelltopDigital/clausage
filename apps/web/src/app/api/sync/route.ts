@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { sql } from 'drizzle-orm';
 import { SyncPayloadSchema } from '@clusage/shared';
 import { db, schema } from '@/db/index';
@@ -58,6 +59,19 @@ export async function POST(req: Request) {
           updatedAt: now,
         },
       });
+  }
+
+  // A fresh sync invalidates the cached page, badge and OG image immediately.
+  // Guarded: revalidatePath is a no-op/throws outside an app request context.
+  if (auth.user.username) {
+    try {
+      const base = `/u/${auth.user.username}`;
+      revalidatePath(base);
+      revalidatePath(`${base}/badge.svg`);
+      revalidatePath(`${base}/opengraph-image`);
+    } catch {
+      /* not in a request scope (e.g. tests) */
+    }
   }
 
   return NextResponse.json({
