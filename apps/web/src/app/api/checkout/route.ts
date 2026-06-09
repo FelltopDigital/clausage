@@ -22,29 +22,37 @@ export async function POST() {
   const stripe = getStripe();
   const base = env.APP_URL.replace(/\/$/, '');
 
-  // Reuse the customer if we have one, else let Checkout create it.
-  let customerId = user.stripeCustomerId ?? undefined;
-  if (!customerId) {
-    const customer = await stripe.customers.create({
-      email: user.email,
+  try {
+    // Reuse the customer if we have one, else let Checkout create it.
+    let customerId = user.stripeCustomerId ?? undefined;
+    if (!customerId) {
+      const customer = await stripe.customers.create({
+        email: user.email,
+        metadata: { userId: user.id },
+      });
+      customerId = customer.id;
+      await db
+        .update(schema.users)
+        .set({ stripeCustomerId: customerId })
+        .where(eq(schema.users.id, user.id));
+    }
+
+    const session = await stripe.checkout.sessions.create({
+      mode: 'payment',
+      customer: customerId,
+      client_reference_id: user.id,
       metadata: { userId: user.id },
+      line_items: [{ price: env.STRIPE_PRICE_ID!, quantity: 1 }],
+      success_url: `${base}/dashboard?upgraded=1`,
+      cancel_url: `${base}/dashboard`,
     });
-    customerId = customer.id;
-    await db
-      .update(schema.users)
-      .set({ stripeCustomerId: customerId })
-      .where(eq(schema.users.id, user.id));
+
+    return NextResponse.json({ url: session.url });
+  } catch (err) {
+    // Surface the real Stripe failure instead of a bare 500 — e.g. a test/live
+    // key vs. price mode mismatch ("No such price") or a bad key.
+    const message = err instanceof Error ? err.message : 'Unknown error';
+    console.error('[checkout] Stripe error:', err);
+    return NextResponse.json({ error: `Checkout failed: ${message}` }, { status: 502 });
   }
-
-  const session = await stripe.checkout.sessions.create({
-    mode: 'payment',
-    customer: customerId,
-    client_reference_id: user.id,
-    metadata: { userId: user.id },
-    line_items: [{ price: env.STRIPE_PRICE_ID!, quantity: 1 }],
-    success_url: `${base}/dashboard?upgraded=1`,
-    cancel_url: `${base}/dashboard`,
-  });
-
-  return NextResponse.json({ url: session.url });
 }
