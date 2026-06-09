@@ -51,7 +51,7 @@ export function OnboardingForm() {
       <button
         type="submit"
         disabled={saving}
-        className="rounded-md bg-orange-500 px-4 py-2 font-medium text-black hover:bg-orange-400 disabled:opacity-60"
+        className="rounded-md bg-orange-500 px-4 py-2 font-medium text-black hover:bg-orange-400 hover:cursor-pointer disabled:opacity-60"
       >
         {saving ? 'Saving…' : 'Claim username'}
       </button>

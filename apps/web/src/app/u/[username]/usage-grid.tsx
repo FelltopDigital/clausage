@@ -71,7 +71,7 @@ function Toggle({
         <button
           key={v}
           onClick={() => setView(v)}
-          className={`px-3 py-1 text-sm capitalize ${
+          className={`px-3 py-1 text-sm capitalize hover:cursor-pointer ${
             view === v ? 'bg-orange-500 text-black' : 'text-[var(--color-muted)] hover:text-[var(--color-fg)]'
           }`}
         >
@@ -110,7 +110,7 @@ function MonthPager({
       <button
         onClick={() => step(-1)}
         disabled={atEarliest}
-        className="px-2 text-[var(--color-muted)] hover:text-[var(--color-fg)] disabled:opacity-30"
+        className="px-2 text-[var(--color-muted)] hover:text-[var(--color-fg)] hover:cursor-pointer disabled:opacity-30"
       >
         ←
       </button>
@@ -120,7 +120,7 @@ function MonthPager({
       <button
         onClick={() => step(1)}
         disabled={atLatest}
-        className="px-2 text-[var(--color-muted)] hover:text-[var(--color-fg)] disabled:opacity-30"
+        className="px-2 text-[var(--color-muted)] hover:text-[var(--color-fg)] hover:cursor-pointer disabled:opacity-30"
       >
         →
       </button>

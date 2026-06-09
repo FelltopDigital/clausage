@@ -52,7 +52,7 @@ export function TokenManager({ initialTokens }: { initialTokens: TokenRow[] }) {
       <button
         onClick={mint}
         disabled={busy}
-        className="self-start rounded-md bg-orange-500 px-4 py-2 font-medium text-black hover:bg-orange-400 disabled:opacity-60"
+        className="self-start rounded-md bg-orange-500 px-4 py-2 font-medium text-black hover:bg-orange-400 hover:cursor-pointer disabled:opacity-60"
       >
         {busy ? 'Generating…' : 'Generate token'}
       </button>
@@ -69,7 +69,7 @@ export function TokenManager({ initialTokens }: { initialTokens: TokenRow[] }) {
               </div>
               <button
                 onClick={() => revoke(t.id)}
-                className="text-[var(--color-muted)] hover:text-red-400"
+                className="text-[var(--color-muted)] hover:text-red-400 hover:cursor-pointer"
               >
                 Revoke
               </button>

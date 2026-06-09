@@ -66,7 +66,7 @@ export function PublishToggle({
           <button
             onClick={() => toggle(!pub)}
             disabled={busy}
-            className={`rounded-md px-4 py-2 font-medium disabled:opacity-60 ${
+            className={`rounded-md px-4 py-2 font-medium disabled:opacity-60 hover:cursor-pointer ${
               pub
                 ? 'border border-[var(--color-muted)] hover:bg-[var(--color-bg)]'
                 : 'bg-orange-500 text-black hover:bg-orange-400'
@@ -78,7 +78,7 @@ export function PublishToggle({
           <button
             onClick={startCheckout}
             disabled={busy}
-            className="rounded-md bg-orange-500 px-4 py-2 font-medium text-black hover:bg-orange-400 disabled:opacity-60"
+            className="rounded-md bg-orange-500 px-4 py-2 font-medium text-black hover:bg-orange-400 hover:cursor-pointer disabled:opacity-60"
           >
             {busy ? '…' : 'Publish — $2.99'}
           </button>

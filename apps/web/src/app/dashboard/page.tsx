@@ -45,7 +45,7 @@ export default async function DashboardPage({
           <p className="text-sm text-[var(--color-muted)]">{user.email}</p>
         </div>
         <form action="/api/auth/logout" method="post">
-          <button className="text-sm text-[var(--color-muted)] hover:text-[var(--color-fg)]">
+          <button className="text-sm text-[var(--color-muted)] hover:text-[var(--color-fg)] hover:cursor-pointer">
             Sign out
           </button>
         </form>

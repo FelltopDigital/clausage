@@ -14,7 +14,16 @@ export interface CliConfig {
   machineSalt?: string;
 }
 
-const DEFAULT_API_URL = process.env.CLAUSAGE_API_URL ?? 'https://clausage.com';
+const DEFAULT_API_URL = 'https://clausage.com';
+
+/**
+ * Resolve the backend URL with precedence: CLAUSAGE_API_URL env var >
+ * persisted config value > built-in default. The env var is read at call time
+ * (not module load) so it always wins, even over a value left in config.json.
+ */
+function resolveApiUrl(saved?: string): string {
+  return process.env.CLAUSAGE_API_URL ?? saved ?? DEFAULT_API_URL;
+}
 
 export function configDir(): string {
   // Respect XDG; default to ~/.config/clausage
@@ -28,22 +37,25 @@ export function configPath(): string {
 
 export function loadConfig(): CliConfig {
   const path = configPath();
-  if (!existsSync(path)) {
-    return { apiUrl: DEFAULT_API_URL };
+  let raw: Partial<CliConfig> = {};
+  if (existsSync(path)) {
+    try {
+      raw = JSON.parse(readFileSync(path, 'utf8')) as Partial<CliConfig>;
+    } catch {
+      raw = {};
+    }
   }
-  try {
-    const raw = JSON.parse(readFileSync(path, 'utf8')) as Partial<CliConfig>;
-    return { apiUrl: DEFAULT_API_URL, ...raw };
-  } catch {
-    return { apiUrl: DEFAULT_API_URL };
-  }
+  return { ...raw, apiUrl: resolveApiUrl(raw.apiUrl) };
 }
 
 export function saveConfig(config: CliConfig): void {
   const dir = configDir();
   mkdirSync(dir, { recursive: true });
   const path = configPath();
-  writeFileSync(path, JSON.stringify(config, null, 2), { mode: 0o600 });
+  // Never persist apiUrl — it's always resolved at runtime (env > default), so
+  // a one-off CLAUSAGE_API_URL override can't leak into permanent storage.
+  const { apiUrl: _apiUrl, ...persist } = config;
+  writeFileSync(path, JSON.stringify(persist, null, 2), { mode: 0o600 });
   try {
     chmodSync(path, 0o600); // token lives here — keep it user-only
   } catch {
